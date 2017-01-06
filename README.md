@@ -1,17 +1,8 @@
-pyPaSWAS
+Pacagus
 ========
-[![DOI](https://zenodo.org/badge/21912/swarris/pyPaSWAS.svg)](https://zenodo.org/badge/latestdoi/21912/swarris/pyPaSWAS)
+Tool from detecting and cleaning PacBio / Nanopore long reads after whole genome amplification.
 
-Extented python version of PaSWAS. Original paper in PLOS ONE: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0122524
-
-For DNA/RNA/protein sequence alignment, read mapping, genome plotting and trimming.
-
-PaSWAS was developed in C and CUDA/OpenCL. This version uses the CUDA/OpenCL code from PaSWAS and integrates the sequence alignment software with Python. It supports:
-- text output
-- SAM output
-- logging
-- command line options and configuration files
-- Several internal programs: aligner (default), trimmer and mapper
+It uses the pyPaSWAS framework for sequence alignment (https://github.com/swarris/pyPaSWAS)
 
 Platforms supported:
 - NVIDIA GPU using CUDA (compute capability 1.3 and higher) 
@@ -20,11 +11,12 @@ Platforms supported:
 - Intel Xeon Phi accelerator using OpenCL
 - Other systems supporting OpenCL (AMD, Intel GPUs, etc) should be able to run the software, but are untested.
 
-More information: https://github.com/swarris/pyPaSWAS/wiki
-
 Installation
 ------------
-In most cases it is enough to clone the repository. After that, please install:
+In most cases it is enough to clone the repository. 
+git clone https://github.com/swarris/Pacagus.git
+
+After that, please install:
 - pip (https://docs.python.org/2.7/installing/)
 - numpy: sudo pip install numpy (or pip install --user numpy)
 - BioPython: sudo pip install Biopython (or pip install --user Biopython)
@@ -42,23 +34,21 @@ Getting pyPaSWAS:
 - Clone the repository: git clone https://github.com/swarris/pyPaSWAS.git
 - Or download a pre-packaged release: https://github.com/swarris/pyPaSWAS/releases
 
-Notes on Mac OS X
---------------
-Installing all the necessary packages on a Mac can be difficult:
-- When confronted with the message that the 'intern' module is missing when running pyPaSWAS using openCL, the 'six' package is not installed correctly. This can be solved by upgrading it to the most recent version: 'sudo pip install --upgrade six'. In some cases this will not help.  
-- Although Apple has native support for OpenCL, pyOpenCL might not run with this compiler. Please download the Intel drivers and compiler.
-- NVIDIA CUDA through pyCuda is the best choice when you have a NVIDIA GPU in your Mac. 
+Getting pyPaSWAS:
+pyPaSWAS is required as a module. Run in the following two commands in the ComBaR root folder:
+git submodule init
+git submodule update
 
 Running the software
 -------------------- 
 
-The key command line options are given in Table 1. The two input files are mandatory. Through the options the user can specify the file types of the input files (default: fasta), an output file and a log file. When requested, PyPaSWAS will terminate if the output file already exists.
+The two input files are mandatory. Through the options the user can specify the file types of the input files (default: fasta), an output file and a log file. When requested, ComBaR will terminate if the output file already exists.
 
 Run it by calling:
-- *python pypaswas.py |options| file1 file2*
+- *python pacagus.py |options| file1 file2*
 
 Help file:
-- *python pypaswas.py --help*
+- *python pacagus.py --help*
 
 Selection your device
 ---------------------
@@ -75,20 +65,9 @@ This will select the second NVIDIA GPU: --device_type=GPU --platform_name=NVIDIA
 
 Examples
 --------
-See the github wiki at https://github.com/swarris/pyPaSWAS/wiki for more examples.
 
-Use a fastq-file:
-- *python pypaswas.py testSample.fastq adapters.fa -1 fastq -o out.txt --loglevel=DEBUG*
-
-Output results in SAM format:
-- *python pypaswas.py testSample.fastq adapters.fa -1 fastq -o out.sam --outputformat=SAM --loglevel=DEBUG*
-
-Remove all matches from file 1. Useful from trimming sequences. Sequences with no hits will not be in output
-- *python pypaswas.py testSample.fastq adapters.fa -1 fastq -o out.fa --outputformat=trimmedFasta -p trimmer -L /tmp/log.txt --loglevel=DEBUG*
-
-Align protein sequences:
-- *python pypaswas.py myAA.faa product.faa -M BLOSUM62 -o hits.txt -L /tmp/log.txt --loglevel=DEBUG*
-
+Use a fasta-file:
+- *python pacagus.py reads.fasta reads.fasta -o cleaned.fasta --loglevel=DEBUG*
 
 
 Table 1. Key command line options
