@@ -1,14 +1,18 @@
 #!/usr/bin/python
 import os
+import sys
+
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) +"/pypaswas")
 
-from pacagus.pacagusall import pacagus
+from pacasus.pacasusall import Pacasus
 import logging
 
 if __name__ == '__main__':
+    ppw = Pacasus()
+    ppw.run()
 
     try:
-        ppw = pacagus()
+        ppw = Pacasus()
         ppw.run()
     except Exception as exception:
         # Show complete exception when running in DEBUG

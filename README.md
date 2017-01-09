@@ -1,4 +1,4 @@
-Pacagus
+Pacasus
 ========
 Tool from detecting and cleaning PacBio / Nanopore long reads after whole genome amplification.
 
@@ -14,7 +14,7 @@ Platforms supported:
 Installation
 ------------
 In most cases it is enough to clone the repository. 
-git clone https://github.com/swarris/Pacagus.git
+git clone https://github.com/swarris/Pacasus.git
 
 After that, please install:
 - pip (https://docs.python.org/2.7/installing/)
@@ -42,13 +42,13 @@ git submodule update
 Running the software
 -------------------- 
 
-The two input files are mandatory. Through the options the user can specify the file types of the input files (default: fasta), an output file and a log file. When requested, ComBaR will terminate if the output file already exists.
+The two input files are mandatory. Through the options the user can specify the file types of the input files (default: fasta), an output file and a log file. When requested, Pacasus will terminate if the output file already exists.
 
 Run it by calling:
-- *python pacagus.py |options| file1 file2*
+- *python pacasus.py |options| file1 file2*
 
 Help file:
-- *python pacagus.py --help*
+- *python pacasus.py --help*
 
 Selection your device
 ---------------------
@@ -67,7 +67,7 @@ Examples
 --------
 
 Use a fasta-file:
-- *python pacagus.py reads.fasta reads.fasta -o cleaned.fasta --loglevel=DEBUG*
+- *python pacasus.py reads.fasta -o cleaned.fasta --loglevel=DEBUG*
 
 
 Table 1. Key command line options
@@ -80,7 +80,6 @@ Table 1. Key command line options
 |-o	| --output	| Path to the output file. Default ./output| 
 |-O	| --overrideOutput	| When output file exists, override it (T/F). Default T (true) | 
 |-1	| --filetype1	| File type of the first input file. See bioPython IO for available options. Default fasta| 
-|-2	| --filetype2	| File type of the second input file. See bioPython IO for available options. Default fasta| 
 |-G	| 	| Float value for the gap penalty. Default -5| 
 |-q	| 	| Float value for a mismatch. Default -3| 
 |-r	| 	| Float value for a match. Default 1| 
