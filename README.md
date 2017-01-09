@@ -14,6 +14,7 @@ Platforms supported:
 Installation
 ------------
 In most cases it is enough to clone the repository. 
+
 git clone https://github.com/swarris/Pacasus.git
 
 After that, please install:
@@ -45,7 +46,7 @@ Running the software
 The two input files are mandatory. Through the options the user can specify the file types of the input files (default: fasta), an output file and a log file. When requested, Pacasus will terminate if the output file already exists.
 
 Run it by calling:
-- *python pacasus.py |options| file1 file2*
+- *python pacasus.py |options| readsFile*
 
 Help file:
 - *python pacasus.py --help*
