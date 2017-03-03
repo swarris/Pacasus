@@ -32,13 +32,11 @@ Making use of the OpenCL version:
 - sudo pip install pyOpenCL
 
 Getting pyPaSWAS:
-- Clone the repository: git clone https://github.com/swarris/pyPaSWAS.git
-- Or download a pre-packaged release: https://github.com/swarris/pyPaSWAS/releases
-
-Getting pyPaSWAS:
 pyPaSWAS is required as a module. Run in the following two commands in the ComBaR root folder:
-git submodule init
-git submodule update
+- git submodule init
+- git submodule update
+
+
 
 Running the software
 -------------------- 
