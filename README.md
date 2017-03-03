@@ -32,7 +32,7 @@ Making use of the OpenCL version:
 - sudo pip install pyOpenCL
 
 Getting pyPaSWAS:
-pyPaSWAS is required as a module. Run in the following two commands in the ComBaR root folder:
+pyPaSWAS is required as a module. Run in the following two commands in the Pacasus root folder:
 - git submodule init
 - git submodule update
 
@@ -41,7 +41,7 @@ pyPaSWAS is required as a module. Run in the following two commands in the ComBa
 Running the software
 -------------------- 
 
-The two input files are mandatory. Through the options the user can specify the file types of the input files (default: fasta), an output file and a log file. When requested, Pacasus will terminate if the output file already exists.
+The one input file is mandatory: the PacBio read file. Through the options the user can specify the file type of the input file (default: fasta), an output file and a log file. When requested, Pacasus will terminate if the output file already exists.
 
 Run it by calling:
 - *python pacasus.py |options| readsFile*
