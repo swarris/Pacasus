@@ -29,8 +29,9 @@ def parse_cli(config_file):
         raise ConfigParser.ParsingError("Unable to parse the defaults file ({})".format(config_file))
 
     parser = optparse.OptionParser()
-    parser.description = ('This program performs a Smith-Waterman alignment of all sequences in FILE_1'
-                          ' against all sequences in FILE_2.\nBoth files should be in the fasta format.')
+    parser.description = ('This program performs a Smith-Waterman alignment of the sequences in FILE_1 against '
+                          'the reverse-complement of the reads.\nWhen an alignment indicates the presence of '
+                          'palindromes the read will be split at. ')
     usage = '%prog [options] FILE_1'
     parser.usage = usage
     # general options
@@ -185,7 +186,7 @@ def parse_cli(config_file):
         (settings, arguments) = _override_settings(settings.config_file, settings, arguments)
 
     if len(arguments) < 1:
-        raise InvalidOptionException('Missing input files')
+        raise InvalidOptionException('Missing input files. please use -h for available options')
 
     return (settings, arguments)
 
