@@ -1,6 +1,6 @@
 Pacasus
 ========
-Tool from detecting and cleaning PacBio / Nanopore long reads after whole genome amplification.
+Tool for detecting and cleaning PacBio / Nanopore long reads after whole genome amplification.
 
 It uses the pyPaSWAS framework for sequence alignment (https://github.com/swarris/pyPaSWAS)
 
@@ -17,7 +17,7 @@ In most cases it is enough to clone the repository.
 
 git clone https://github.com/swarris/Pacasus.git
 
-After that, please install:
+After that, you need to install:
 - pip (https://docs.python.org/2.7/installing/)
 - numpy: sudo pip install numpy (or pip install --user numpy)
 - BioPython: sudo pip install Biopython (or pip install --user Biopython)
@@ -32,7 +32,7 @@ Making use of the OpenCL version:
 - sudo pip install pyOpenCL
 
 Getting pyPaSWAS:
-pyPaSWAS is required as a module. Run in the following two commands in the Pacasus root folder:
+pyPaSWAS is required as a module. Run the following two commands in the Pacasus root folder:
 - git submodule init
 - git submodule update
 
@@ -41,7 +41,7 @@ pyPaSWAS is required as a module. Run in the following two commands in the Pacas
 Running the software
 -------------------- 
 
-The one input file is mandatory: the PacBio read file. Through the options the user can specify the file type of the input file (default: fasta), an output file and a log file. When requested, Pacasus will terminate if the output file already exists.
+The read file is mandatory, by setting the options one can specify the type of input file (default: fasta), the output file and a log file. When requested, Pacasus will stop if the output file exists.
 
 Run it by calling:
 - *python pacasus.py |options| readsFile*
@@ -51,7 +51,7 @@ Help file:
 
 Selection your device
 ---------------------
-By default, pypaswas will use the first CPU device. This can be changed by using:
+By default, pacasus will use the first CPU device. This can be changed by using:
 - *--device_type=[CPU|GPU]*
 - *--platform_name=[Intel|NVIDIA]*
 - *--framework=[opencl|CUDA]*
@@ -62,8 +62,8 @@ For example, this will select the CPU: --device_type=CPU --platform_name=Intel -
 This will select the second NVIDIA GPU: --device_type=GPU --platform_name=NVIDIA --framework=CUDA --device=1
 
 
-Examples
---------
+Example
+-------
 
 Use a fasta-file:
 - *python pacasus.py reads.fasta -o cleaned.fasta --loglevel=DEBUG*
@@ -87,4 +87,4 @@ Table 1. Key command line options
 |	| --device	| Integer value indicating the device to use. Default 0 for the first device. | 
 |-c	| 	| Option followed by the name of a configuration file. This option allows for short command line calls and administration of used settings. | 
 
-For questions, e-mail s.warris@gmail.com
+If you have questions, please e-mail s.warris@gmail.com
