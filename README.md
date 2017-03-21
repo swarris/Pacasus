@@ -68,6 +68,27 @@ Example
 Use a fasta-file:
 - *python pacasus.py reads.fasta -o cleaned.fasta --loglevel=DEBUG*
 
+Key settings for cleaning
+-------
+
+The following settings impact the number of reads which will be cleaned. These settings define the minimal properties the alignment should have to be identified as a palindrome sequence:
+
+- --filter_factor=0.01
+- --query_coverage=0.01
+- --query_identity=0.01
+- --relative_score=0.01
+- --base_score=1.0
+
+These settings are relatively strict. Are your reads very noisy, only a few reads are cleaned or the de novo is still very fragmented? Then lower these values to for example:
+
+- --filter_factor=0.00001
+- --query_coverage=0.0001
+- --query_identity=0.0001
+- --relative_score=0.0001
+- --base_score=0.25
+
+In those cases it best to also increase the minimum read length after cleaning, otherwise the output will be full of (very) short sequences (--minimum_read_length=500).
+
 
 Table 1. Key command line options
 
