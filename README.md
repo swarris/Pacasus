@@ -2,6 +2,8 @@ Pacasus
 ========
 Tool for detecting and cleaning PacBio / Nanopore long reads after whole genome amplification. Check the poster from the Revolutionizing Next-Generation Sequencing (2nd edition) conference in the source folder: https://github.com/swarris/Pacasus/blob/master/vib2017.pdf. 
 
+The prepint version is found on http://www.biorxiv.org/content/early/2017/08/09/173872
+
 It uses the pyPaSWAS framework for sequence alignment (https://github.com/swarris/pyPaSWAS)
 
 Platforms supported:
