@@ -8,9 +8,6 @@ from pacasus.pacasusall import Pacasus
 import logging
 
 if __name__ == '__main__':
-    ppw = Pacasus()
-    ppw.run()
-
     try:
         ppw = Pacasus()
         ppw.run()
