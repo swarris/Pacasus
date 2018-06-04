@@ -2,9 +2,9 @@
 from pyPaSWAS.Core.HitList import HitList
 from operator import itemgetter,attrgetter
 
-from SWSeqRecord import SWSeqRecord
+from pyPaSWAS.Core.SWSeqRecord import SWSeqRecord
 from Bio.Seq import Seq
-from Hit import Hit
+from pyPaSWAS.Core.Hit import Hit
 from pyPaSWAS.Core.Programs import Aligner
 
 class Palindrome(Aligner):
@@ -55,7 +55,7 @@ class Palindrome(Aligner):
                 # get hits and sort on highest score
                 hit = sorted(results.real_hits.values(),key=attrgetter('score'), reverse=True)[0]
                 # process this best hit
-                palindrome(hit, cur_records_seq, cur_targets,self.settings)
+                self.palindrome(hit, cur_records_seq, cur_targets,self.settings)
             # remove processed sequences: 
             cur_targets = cur_targets[1:]
             cur_records_seq = cur_records_seq[1:]
