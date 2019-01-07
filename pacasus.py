@@ -17,9 +17,6 @@ if __name__ == '__main__':
             getattr(logging, 'DEBUG') == ppw.logger.getEffectiveLevel()):
             ppw.logger.exception(str(exception))
         else:
-            if len(exception.args) > 0:
-                print('Program ended. The message was: ' + ','.join(exception.args))
-            else:
-                print('Program ended. The message was: {}'.format(exception))
+            print('Program ended. The message was: {}'.format(exception))
                 
             print("Please use the option --help for information on command line arguments.")
