@@ -25,6 +25,7 @@ After that, you need to install:
 - pip (https://docs.python.org/2.7/installing/)
 - numpy: sudo pip install numpy (or pip install --user numpy)
 - BioPython: sudo pip install Biopython (or pip install --user Biopython)
+- (for Python 2 only) ConfigParser: sudo pip install ConfigParser (or pip install --user ConfigParser)
 - In some cases, the python development packages are required (Ubuntu: sudo apt-get install python-dev) 
 
 Making use of the CUDA version (also recommended when using the OpenCL version on a NVIDIA GPU):
