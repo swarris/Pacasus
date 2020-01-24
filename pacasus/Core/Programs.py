@@ -14,13 +14,14 @@ class Palindrome(Aligner):
 
     def palindrome(self, hit, records_seq, targets, settings):
         if hit.query_coverage > float(settings.query_coverage_slice):
-            records_seq.append(SWSeqRecord(hit.sequence_info.seq[:len(hit.sequence_info.seq)/2], hit.sequence_info.id + "_a1"))
-            records_seq.append(SWSeqRecord(hit.sequence_info.seq[len(hit.sequence_info.seq)/2:], hit.sequence_info.id + "_a2"))
+            snip = int(len(hit.sequence_info.seq)/2)
+            records_seq.append(SWSeqRecord(hit.sequence_info.seq[:snip], hit.sequence_info.id + "_a1"))
+            records_seq.append(SWSeqRecord(hit.sequence_info.seq[snip:], hit.sequence_info.id + "_a2"))
 
-            targets.append(SWSeqRecord(hit.sequence_info.seq[:len(hit.sequence_info.seq)/2].reverse_complement(), hit.sequence_info.id + "_a1_RC"))
-            targets.append(SWSeqRecord(hit.sequence_info.seq[len(hit.sequence_info.seq)/2:].reverse_complement(), hit.sequence_info.id + "_a2_RC"))
+            targets.append(SWSeqRecord(hit.sequence_info.seq[:snip].reverse_complement(), hit.sequence_info.id + "_a1_RC"))
+            targets.append(SWSeqRecord(hit.sequence_info.seq[snip:].reverse_complement(), hit.sequence_info.id + "_a2_RC"))
         else:
-            snip = (hit.seq_location[1]-hit.seq_location[0])/2
+            snip = int((hit.seq_location[1]-hit.seq_location[0])/2)
             if snip - hit.seq_location[0] > int(settings.minimum_read_length):
                 records_seq.append(SWSeqRecord(hit.sequence_info.seq[:snip], hit.sequence_info.id + "_b1"))
                 targets.append(SWSeqRecord(hit.sequence_info.seq[:snip].reverse_complement(), hit.sequence_info.id + "_b1_RC"))

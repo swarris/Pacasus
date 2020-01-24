@@ -6,7 +6,7 @@ This module contains the main class of Pacasus.
 from pyPaSWAS.Core import resource_filename
 from pyPaSWAS.Core.Exceptions import InvalidOptionException, ReaderException
 from pyPaSWAS.Core.Formatters import DefaultFormatter, FASTA
-from Core.Programs import Palindrome
+from .Core.Programs import Palindrome
 from pyPaSWAS.Core.Readers import BioPythonReader
 from pyPaSWAS.Core.Scores import BasicScore, CustomScore, DnaRnaScore
 from pyPaSWAS.Core.HitList import HitList

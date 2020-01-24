@@ -4,7 +4,7 @@ TODO Add a proper introduction of the package.
 from pyPaSWAS.Core.Exceptions import InvalidOptionException
 from pyPaSWAS import set_logger, _override_settings, _log_settings_to_file, normalize_file_path
 from datetime import datetime
-import ConfigParser
+import configparser
 import logging
 import optparse
 import os
@@ -22,11 +22,11 @@ def parse_cli(config_file):
     The options and arguments are stored in the global variables settings and arguments, respectively.
     '''
     # Read defaults
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     try:
         config.read(config_file)
-    except ConfigParser.ParsingError:
-        raise ConfigParser.ParsingError("Unable to parse the defaults file ({})".format(config_file))
+    except configparser.ParsingError:
+        raise configparser.ParsingError("Unable to parse the defaults file ({})".format(config_file))
 
     parser = optparse.OptionParser()
     parser.description = ('This program performs a Smith-Waterman alignment of the sequences in FILE_1 against '
