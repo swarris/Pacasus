@@ -56,7 +56,10 @@ class Palindrome(Aligner):
                 # get hits and sort on highest score
                 hit = sorted(results.real_hits.values(),key=attrgetter('score'), reverse=True)[0]
                 # process this best hit
-                self.palindrome(hit, cur_records_seq, cur_targets,self.settings)
+                if self.settings.remove == "T" or self.settings.remove == "t":
+                    self.logger.info("Hit found, skipping read")
+                else:
+                    self.palindrome(hit, cur_records_seq, cur_targets,self.settings)
             # remove processed sequences: 
             cur_targets = cur_targets[1:]
             cur_records_seq = cur_records_seq[1:]

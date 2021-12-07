@@ -137,6 +137,8 @@ def parse_cli(config_file):
 
     palindrome_options.add_option('--minimum_read_length', help='Minimum length of the read in bp to the saved.', dest='minimum_read_length',
                               default=config.get('Palindrome', 'minimum_read_length'))
+    palindrome_options.add_option('--remove', help='Either remove (T) or process (F) the read.', dest='remove',
+                              default=config.get('Palindrome', 'remove'))
     parser.add_option_group(palindrome_options)
 
     
