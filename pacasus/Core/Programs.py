@@ -57,7 +57,7 @@ class Palindrome(Aligner):
                 hit = sorted(results.real_hits.values(),key=attrgetter('score'), reverse=True)[0]
                 # process this best hit
                 if self.settings.remove == "T" or self.settings.remove == "t":
-                    self.logger.info("Hit found, skipping read")
+                    self.logger.info("Hit found, skipping read with ID {}".format(hit.sequence_info.id))
                 else:
                     self.palindrome(hit, cur_records_seq, cur_targets,self.settings)
             # remove processed sequences: 
